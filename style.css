@@ -1,0 +1,129 @@
+/* Paleta de colores inspirada en ¡Oye, Arnold! */
+:root {
+    --arnold-blue: #00b8d4; /* El azul de su gorra */
+    --arnold-yellow: #ffd600; /* El color de su pelo */
+    --brick-red: #c53929; /* El color de los edificios */
+    --paper-white: #fefcf3; /* Un blanco tipo papel viejo */
+    --text-color: #333;
+    --font-title: 'Rock Salt', cursive; /* Fuente tipo graffiti o tiza */
+    --font-body: 'Patrick Hand', cursive; /* Fuente tipo manuscrita */
+}
+
+body {
+    background-color: #455a64; /* Un fondo azul grisáceo como el cielo de la ciudad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: var(--font-body);
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    background-image: url('https://www.transparenttextures.com/patterns/brick-wall.png');
+    background-color: var(--brick-red);
+    border: 5px solid #2d2d2d;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Para que la imagen se ajuste a las esquinas redondeadas */
+}
+
+.header-img {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #2d2d2d;
+}
+
+.card-body {
+    padding: 25px;
+    position: relative;
+    text-align: center;
+}
+
+h1 {
+    font-family: var(--font-title);
+    color: white;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 5px black;
+    margin-bottom: 20px;
+}
+
+.paper {
+    background-color: var(--paper-white);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transform: rotate(-2deg); /* Para que parezca una nota pegada chueca */
+    transition: transform 0.3s ease;
+}
+
+.paper:hover {
+    transform: rotate(0deg); /* Se endereza al pasar el mouse/dedo */
+}
+
+.paper p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.paper .signature {
+    text-align: right;
+    font-weight: bold;
+}
+
+.signature span {
+    font-family: var(--font-title);
+    color: var(--arnold-blue);
+}
+
+/* Decoración: La gorra de Arnold hecha con CSS */
+.arnold-hat {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 10px;
+    background-color: var(--arnold-blue);
+    border-radius: 10px 10px 0 0;
+    border: 2px solid #2d2d2d;
+}
+.arnold-hat::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    width: 26px;
+    height: 6px;
+    background-color: var(--arnold-blue);
+    border: 2px solid #2d2d2d;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Botón de Música */
+#play-music-btn {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--arnold-yellow);
+    border: 3px solid #2d2d2d;
+    border-radius: 50%;
+    color: #2d2d2d;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: all 0.2s ease;
+}
+
+#play-music-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+    background-color: #ffecb3;
+}
