@@ -1,16 +1,23 @@
 /* Paleta de colores inspirada en ¡Oye, Arnold! */
 :root {
-    --arnold-blue: #00b8d4; /* El azul de su gorra */
-    --arnold-yellow: #ffd600; /* El color de su pelo */
-    --brick-red: #c53929; /* El color de los edificios */
-    --paper-white: #fefcf3; /* Un blanco tipo papel viejo */
+    --arnold-blue: #00b8d4;
+    --arnold-yellow: #ffd600;
+    --brick-red: #c53929;
+    --paper-white: #fefcf3;
     --text-color: #333;
-    --font-title: 'Rock Salt', cursive; /* Fuente tipo graffiti o tiza */
-    --font-body: 'Patrick Hand', cursive; /* Fuente tipo manuscrita */
+    --font-title: 'Rock Salt', cursive;
+    --font-body: 'Patrick Hand', cursive;
+}
+
+/* Animación para los stickers y decoraciones */
+@keyframes gentle-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
 body {
-    background-color: #455a64; /* Un fondo azul grisáceo como el cielo de la ciudad */
+    background-color: #455a64;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,13 +34,7 @@ body {
     border: 5px solid #2d2d2d;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    overflow: hidden; /* Para que la imagen se ajuste a las esquinas redondeadas */
-}
-
-.header-img {
-    width: 100%;
-    height: auto;
-    border-bottom: 5px solid #2d2d2d;
+    overflow: hidden;
 }
 
 .card-body {
@@ -56,12 +57,12 @@ h1 {
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     text-align: left;
-    transform: rotate(-2deg); /* Para que parezca una nota pegada chueca */
+    transform: rotate(-2deg);
     transition: transform 0.3s ease;
 }
 
 .paper:hover {
-    transform: rotate(0deg); /* Se endereza al pasar el mouse/dedo */
+    transform: rotate(0deg);
 }
 
 .paper p {
@@ -74,6 +75,9 @@ h1 {
 .paper .signature {
     text-align: right;
     font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .signature span {
@@ -81,16 +85,18 @@ h1 {
     color: var(--arnold-blue);
 }
 
-/* Decoración: La gorra de Arnold hecha con CSS */
+/* Decoración: La gorra de Arnold (con animación) */
 .arnold-hat {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: -5px;
+    right: 15px;
     width: 40px;
     height: 10px;
     background-color: var(--arnold-blue);
     border-radius: 10px 10px 0 0;
     border: 2px solid #2d2d2d;
+    animation: gentle-pulse 3s ease-in-out infinite; /* Animación aplicada */
+    animation-delay: 0.5s; /* Para que no se mueva igual que otros elementos */
 }
 .arnold-hat::before {
     content: '';
@@ -103,6 +109,17 @@ h1 {
     border: 2px solid #2d2d2d;
     border-top: none;
     border-radius: 0 0 5px 5px;
+}
+
+/* Decoración: El peinado de Gerald */
+.gerald-hair {
+    width: 25px;
+    height: 35px;
+    background: #333;
+    border-radius: 50% 50% 0 0;
+    border: 2px solid var(--paper-white);
+    margin-left: 10px;
+    box-shadow: 0 0 0 2px #333; /* Doble borde para que resalte */
 }
 
 /* Botón de Música */
@@ -118,12 +135,22 @@ h1 {
     border-radius: 50%;
     color: #2d2d2d;
     font-size: 1.5rem;
+    padding-left: 3px; /* Pequeño ajuste para centrar el saxofón */
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     transition: all 0.2s ease;
 }
-
 #play-music-btn:hover {
     transform: translateX(-50%) scale(1.1);
     background-color: #ffecb3;
+}
+
+/* Mensaje de Grafiti */
+.graffiti-footer {
+    font-family: var(--font-title);
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
 }
