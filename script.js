@@ -4,9 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeSong = document.getElementById('theme-song');
 
     // Función para "desbloquear" el audio en móviles con el primer toque.
+    // Esencial para que el botón de play funcione correctamente.
     function unlockAudio() {
-        themeSong.play();
-        themeSong.pause();
+        if (themeSong.paused) {
+            themeSong.play().catch(() => {}); // Intenta reproducir y si falla no muestra error.
+            themeSong.pause(); // Y pausa inmediatamente.
+        }
+        // Se elimina a sí misma para no ejecutarse más de una vez.
         document.body.removeEventListener('click', unlockAudio);
         document.body.removeEventListener('touchstart', unlockAudio);
     }
